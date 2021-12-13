@@ -1,8 +1,5 @@
 # insiderTrades
 
-!-- badges start --
-!-- badges end --
-
 The goal of insiderTrades is to provide functions that download insider trading transactions and insider holdings from a public NoSQL SEC database using keyword criteria and generate a relational data frame as the output. The functions are able to handle filings from 2004Q1 to present. There are four different types of functions, those that handle non-derivative transactions, those that handle derivative transactions, those that handle non-derivative holdings, and those that handle derivative holdings.
 
 The SEC requires insiders, who are defined as officers, directors, and those that hold more than 10% of any class of a company's securities, to report purchase sales, and holdings. The insiders report any transactions by Form 4 within two business days of the transaction. An insider must file a Form 5 within 45 days of the fiscal year end if any transactions were not reported on a Form 4 during the fiscal year because 1) exemption to filing or 2) a failure to file a Form 4. Additionally, insiders at times disclose their total holding of a company's securities.
@@ -14,9 +11,9 @@ Due to the limitations the SEC has on the number of queries per second, it takes
 How the SEC repository is structured is that the filings are organized by form type, quarter, and year. These arguments plus the name and email arguments are the only required arguments for the function. For the name and email arguments, please put your name and email address since this is required by the SEC.
 
 ```
-from insiderTrades import nonderivativeTransactionsPullAndScrape
+import insiderTrades as it
 
-dat1 = nonderivativeTransactionsPullAndScrape(quarter = 2, year = 2015, form = 4, name = "Your Name", email = "YourEmail@YourEmail.com")
+dat1 = it.nonderivativeTransactionsPullAndScrape(quarter = 2, year = 2015, form = 4, name = "Your Name", email = "YourEmail@YourEmail.com")
 ```
 
 ### Example - Keywords
@@ -31,7 +28,7 @@ All of the functions have the ability to use key words to determine if a transac
 An important item of note is that a transaction will be included as long as it fulfills only one of the key words. Thus a good way to think about the key words is that they are connected by OR rather than by AND. Thus any transaction that contains gift or charity or charitable in the footnotes or contains the name SMITH or is a gift transaction will be included. 
 
 ```
-dat2 = nonderivativeHoldingsPullAndScrape(quarter = 2, year = 2018, form = 4, name = "Your Name", email = "YourEmail@YourEmail.com", footnoteKeywords = ["gift", "charity", "charitable"], transactionType = "G", rptOwnerKeywords = "SMITH")
+dat2 = it.nonderivativeHoldingsPullAndScrape(quarter = 2, year = 2018, form = 4, name = "Your Name", email = "YourEmail@YourEmail.com", footnoteKeywords = ["gift", "charity", "charitable"], transactionType = "G", rptOwnerKeywords = "SMITH")
 ```
 
 ## Installation
