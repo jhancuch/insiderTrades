@@ -33,7 +33,7 @@ dat2 = it.nonderivativeHoldingsPullAndScrape(quarter = 2, year = 2018, form = 4,
 
 ## Installation
 
-You can install the released version of insiderTrades from [PyPi](https://pypi.org/project/insiderTrades/) with
+You can install the released version of insiderTrades from [PyPi](https://pypi.org/project/insiderTrades/1.0.0/) with
 
 ```
 pip install insiderTrades
