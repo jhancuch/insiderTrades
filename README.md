@@ -10,7 +10,7 @@ Due to the limitations the SEC has on the number of queries per second, it takes
 ### Example - No keywords
 How the SEC repository is structured is that the filings are organized by form type, quarter, and year. These arguments plus the name and email arguments are the only required arguments for the function. For the name and email arguments, please put your name and email address since this is required by the SEC.
 
-```
+```python
 import insiderTrades as it
 
 dat1 = it.nonderivativeTransactionsPullAndScrape(quarter = 2, year = 2015, form = 4, name = "Your Name", email = "YourEmail@YourEmail.com")
@@ -27,7 +27,7 @@ All of the functions have the ability to use key words to determine if a transac
 
 An important item of note is that a transaction will be included as long as it fulfills only one of the key words. Thus a good way to think about the key words is that they are connected by OR rather than by AND. Thus any transaction that contains gift or charity or charitable in the footnotes or contains the name SMITH or is a gift transaction will be included. 
 
-```
+```python
 dat2 = it.nonderivativeHoldingsPullAndScrape(quarter = 2, year = 2018, form = 4, name = "Your Name", email = "YourEmail@YourEmail.com", footnoteKeywords = ["gift", "charity", "charitable"], transactionType = "G", rptOwnerKeywords = "SMITH")
 ```
 
@@ -35,9 +35,8 @@ dat2 = it.nonderivativeHoldingsPullAndScrape(quarter = 2, year = 2018, form = 4,
 
 You can install the released version of insiderTrades from [PyPi](https://pypi.org/project/insiderTrades/1.0.0/) with
 
-```
-pip install insiderTrades
-
+```python
+pip3 install insiderTrades
 ```
 
 ## Important Notes
